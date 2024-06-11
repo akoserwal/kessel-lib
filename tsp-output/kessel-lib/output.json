@@ -1,0 +1,84 @@
+{
+  "name": "inventory",
+  "imports": [
+    "iam"
+  ],
+  "types": [
+    {
+      "name": "Pets",
+      "visibility": "public",
+      "relations": [
+        {
+          "name": "read",
+          "visibility": "private",
+          "body": {
+            "kind": "self",
+            "cardinality": "ExactlyOne",
+            "module": "iam",
+            "type": {
+              "module": "iam",
+              "name": "workspace"
+            }
+          }
+        },
+        {
+          "name": "read",
+          "visibility": "public",
+          "body": {
+            "kind": "nested_reference",
+            "relation": "workspace",
+            "sub_relation": "inventory_hosts_read",
+            "module": ""
+          },
+          "extensions": [
+            {
+              "module": "iam",
+              "name": "workspace_permission",
+              "params": {
+                "full_name": "inventory_hosts_read"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListPetToysResponse",
+      "visibility": "public",
+      "relations": [
+        {
+          "name": "list",
+          "visibility": "private",
+          "body": {
+            "kind": "self",
+            "cardinality": "ExactlyOne",
+            "module": "iam",
+            "type": {
+              "module": "iam",
+              "name": "workspace"
+            }
+          }
+        },
+        {
+          "name": "list",
+          "visibility": "public",
+          "body": {
+            "kind": "nested_reference",
+            "relation": "workspace",
+            "sub_relation": "inventory_hosts_read",
+            "module": ""
+          },
+          "extensions": [
+            {
+              "module": "iam",
+              "name": "workspace_permission",
+              "params": {
+                "full_name": "inventory_hosts_read"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
