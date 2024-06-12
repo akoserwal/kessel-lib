@@ -2,6 +2,7 @@
 A TypeSpec library
 
 ## Build
+
 ```npm run build```
 
 ## Compile main.tsp
@@ -12,3 +13,6 @@ A TypeSpec library
 
 ## Compile petstore.tsp
 ```tsp compile lib/petstore.tsp --emit kessel-lib```
+
+## Compile inventory.tsp
+```tsp compile lib/inventory.tsp --emit kessel-lib``
